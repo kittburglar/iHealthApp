@@ -93,7 +93,7 @@
     }
 
     infoURLString=[self getUrlString:theBaseURL params:params];
-    NSLog(@"infoURLString==%@",infoURLString);
+    NSLog(@"infoURLString==%@\n",infoURLString);
     NSURL *url=[NSURL URLWithString:infoURLString];
     NSMutableURLRequest *request=[[NSMutableURLRequest alloc]initWithURL:url];
     connection=[[NSURLConnection alloc]initWithRequest:request delegate:self];

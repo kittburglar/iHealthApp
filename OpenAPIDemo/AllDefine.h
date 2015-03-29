@@ -30,7 +30,8 @@
 #define myBGSV @"9d2ba22ffa93433ab444bb05f6d5110d"
 #define mySleepSV @"d6fe3827a5a646b3ba7df928329b4d4a"
 #define myActivitySV @"7e8e41ba8fcf40d4b09f9b6d5988a24a"
-#define myredirect_uri @"http://www.ihealthlabs.com"
+//#define myredirect_uri @"http://www.ihealthlabs.com"
+#define myredirect_uri @"http://www.test.com"
 //使用者需要更改的
 
 

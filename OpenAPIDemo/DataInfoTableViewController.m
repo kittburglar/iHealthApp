@@ -145,13 +145,15 @@
     if ([self.sourceTye isEqualToString:WeightResult]) {
         cell.myLab.text=[NSString stringWithFormat:@"%@\nWeight:%.1f kg       BMI:%.1f",strDate,[[detail objectForKey:@"WeightValue"]floatValue],[[detail objectForKey:@"BMI"]floatValue]];
     }else if ([self.sourceTye isEqualToString:BPResult]){
-      
+        printf("BPResult\n");
         NSString *hp=[NSString stringWithFormat:@"%.0f",[[detail objectForKey:@"HP"]floatValue]];
         NSString *lp=[NSString stringWithFormat:@"%.0f",[[detail objectForKey:@"LP"]floatValue]];
         NSString *hr=[NSString stringWithFormat:@"%@",[detail objectForKey:@"HR"]];
         [dateFormatter release];
         cell.myLab.text=[NSString stringWithFormat:@"%@\nHP:%@ mmHg       LP:%@ mmHg/n  HR:%@ Beats/Min",strDate,hp,lp,hr];
 
+       
+        
     }else if ([self.sourceTye isEqualToString:OXResult]){
         NSString *spo2=[NSString stringWithFormat:@"%@",[detail objectForKey:@"BO"]];
         NSString *PR=[NSString stringWithFormat:@"%@",[detail objectForKey:@"HR"]];
