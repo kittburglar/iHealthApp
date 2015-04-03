@@ -8,7 +8,9 @@
 
 #import "DataInfoTableViewController.h"
 #import "JSON.h"
+#import "AdEngines.h"
 #import "AllDefine.h"
+
 
 @interface DataInfoTableViewController ()
 
@@ -26,6 +28,9 @@
 @synthesize nextAlert;
 
 @synthesize detaildatacell;
+
+#define appID @"6d8d73435c334451a87691ec54404514"
+#define appKey @"ece6d4d984dd4c7b835e7c04b367f769"
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -164,14 +169,47 @@
         cell.myLab.text=[NSString stringWithFormat:@"%@\nSPO2:%@      PR:%@",strDate,spo2,PR];
         
         
-    }else if ([self.sourceTye isEqualToString:BGResult]){
+    }
+    else if ([self.sourceTye isEqualToString:BGResult]){
         cell.myLab.font=[UIFont systemFontOfSize:15];
         NSString *bgResult=[NSString stringWithFormat:@"%.1f",[[detail objectForKey:@"BG"]floatValue]];
         NSString *dinnerSituation=[NSString stringWithFormat:@"%@",[detail objectForKey:@"DinnerSituation"]];
-         NSString *drugSituation=[NSString stringWithFormat:@"%@",[detail objectForKey:@"DrugSituation"]];
-         cell.myLab.text=[NSString stringWithFormat:@"%@   BGResult:%@ mg/dl\nDinnerSituation:%@\nDrugSituation:%@",strDate,bgResult,dinnerSituation,drugSituation];
+        NSString *drugSituation=[NSString stringWithFormat:@"%@",[detail objectForKey:@"DrugSituation"]];
+        cell.myLab.text=[NSString stringWithFormat:@"%@   BGResult:%@ mg/dl\nDinnerSituation:%@\nDrugSituation:%@",strDate,bgResult,dinnerSituation,drugSituation];
+        AdEngines *engine=[[AdEngines alloc]initWithAppKey:appID appSecret:appKey];
+        NSLog(@"%@   UserID:%@\nBGResult:%@ mg/dl\nDinnerSituation:%@\nDrugSituation:%@",strDate,engine.userID,bgResult,dinnerSituation,drugSituation);
         [dateFormatter release];
-    }else if ([self.sourceTye isEqualToString:ActivityResult]){
+        
+        //post data up to PHP
+        NSString *noteDataString = [NSString stringWithFormat:@"userid=%@&bgresult=%@&dinnersituation=%@&drugsituation=%@", engine.userID, bgResult, dinnerSituation, drugSituation];
+        
+        NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+        
+        NSURL * url = [NSURL URLWithString:@"http://kittburglar.com/save.php"];
+        NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
+        [urlRequest setHTTPMethod:@"POST"];
+        [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *dataRaw, NSURLResponse *header, NSError *error) {
+            NSDictionary *json = [NSJSONSerialization
+                                  JSONObjectWithData:dataRaw
+                                  options:kNilOptions error:&error];
+            NSString *status = json[@"status"];
+            if([status isEqual:@"1"]){
+                //Success
+                printf("Successfully send data to php file!\n");
+                
+            } else {
+                printf("Failed to send data to php file!\n");
+                //Error
+                
+            }
+        }];
+        
+        [dataTask resume];
+    }
+    else if ([self.sourceTye isEqualToString:ActivityResult]){
         NSString *cal=[NSString stringWithFormat:@"%@",[detail objectForKey:@"Calories"]];
         NSString *DistanceTraveled=[NSString stringWithFormat:@"%.2f",[[detail objectForKey:@"DistanceTraveled"]floatValue]];
         NSString *Steps=[NSString stringWithFormat:@"%@",[detail objectForKey:@"Steps"]];
@@ -353,7 +391,7 @@
         if ([result isKindOfClass:[NSDictionary class]]) {
             NSDictionary *dict=(NSDictionary *)result;
             if ([[dict objectForKey:@"ErrorDescription"]isEqual:@"is_not_authorized"]) {
-                NSLog(@"您还为授权");
+                NSLog(@"Not Authorized");
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Request Error" 
                                                              message:@"Not Authorized" 
                                                             delegate:self

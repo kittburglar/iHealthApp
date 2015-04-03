@@ -129,34 +129,7 @@
     button.enabled=NO;
     [self gotoAskData:BPResult sv:mybpsv];
     
-    //post data up to PHP
-    NSString *noteDataString = [NSString stringWithFormat:@"name=%s&address=%s&latitude=%s&longitude=%s", "TEST123", "TEST456", "37.99", "123.213123"];
     
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
-    
-    NSURL * url = [NSURL URLWithString:@"http://kittburglar.com/save.php"];
-    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
-    [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *dataRaw, NSURLResponse *header, NSError *error) {
-        NSDictionary *json = [NSJSONSerialization
-                              JSONObjectWithData:dataRaw
-                              options:kNilOptions error:&error];
-        NSString *status = json[@"status"];
-        if([status isEqual:@"1"]){
-            //Success
-            printf("Successfully send data to php file!\n");
-            
-        } else {
-            printf("Failed to send data to php file!\n");
-            //Error
-            
-        }
-    }];
-    
-    [dataTask resume];
 }
 - (IBAction)getSleep:(id)sender {
     UIButton *button=(UIButton *)sender;

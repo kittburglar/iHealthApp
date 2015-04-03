@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailDataCell.h"
+#import "AdEngines.h"
 
 @interface DataInfoTableViewController : UITableViewController<UIAlertViewDelegate>{
     NSMutableArray *sourceDataArray;

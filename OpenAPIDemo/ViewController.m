@@ -42,9 +42,14 @@
 //#define appID @"bd44ef426a434cf386891e3c2397fa51"
 //#define appKey @"d7a62ff0c66e4376aef6e87b69eef3e1"
 
+/*
 #define appID @"8a08cbf9ccc9407c8765988bded8c179"
 #define appKey @"5522390fee084e80a73064318b3be5a2"
 #define myredirect_uri @"http://www.test.com"
+*/
+#define appID @"6d8d73435c334451a87691ec54404514"
+#define appKey @"ece6d4d984dd4c7b835e7c04b367f769"
+#define myredirect_uri @"http://www.kittburglar.com"
 
 @interface ViewController ()
 

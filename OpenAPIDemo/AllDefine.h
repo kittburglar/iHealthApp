@@ -17,12 +17,17 @@
 #define kAdKeychainUserID               @"AndonUserID"
 
  //sandbox
- #define kAuthURL @"http://sandboxapi.ihealthlabs.com/OpenApiV2/OAuthv2/userauthorization/"
- #define kBaseInfoURL @"http://sandboxapi.ihealthlabs.com/openapiv2/user/"
- 
+/*
+#define kAuthURL @"http://sandboxapi.ihealthlabs.com/OpenApiV2/OAuthv2/userauthorization/"
+#define kBaseInfoURL @"http://sandboxapi.ihealthlabs.com/openapiv2/user/"
+*/
+
+#define kAuthURL @"https://api.ihealthlabs.com:8443/OpenApiV2/OAuthv2/userauthorization/"
+#define kBaseInfoURL @"https://api.ihealthlabs.com:8443/openapiv2/user/"
 
 
 //使用者需要更改的。使用时，到网站申请应用，换成应用的SC,SV
+/*
 #define mysc @"a3641c454a3d4feaafe8a192759060c0"
 #define myweightsv @"aaac41ec4bb3492892d0651ba04f8395"
 #define mybpsv @"57219bf03a47464aa7580fdb5d1f0dce"
@@ -32,7 +37,19 @@
 #define myActivitySV @"7e8e41ba8fcf40d4b09f9b6d5988a24a"
 //#define myredirect_uri @"http://www.ihealthlabs.com"
 #define myredirect_uri @"http://www.test.com"
+*/
+
+
 //使用者需要更改的
+#define mysc @"0a3841aaefc1471cb38559e29be0177b"
+#define myweightsv @"c84cfcb660e84d129b18eec1cafe26cd"
+#define mybpsv @"dbcfdeb5f4834a018aa020bc1fcfa52e"
+#define myOXSV @"bc1643df230b47df93cb409b89e0bcea"
+#define myBGSV @"472efb2f8d3b4276a7149d82f1bc14a6"
+#define mySleepSV @"f5fb2670a7e74762af72aaa1cb132c2f"
+#define myActivitySV @"23cebb55e61045e1ba1f4a5088cf3613"
+//#define myredirect_uri @"http://www.ihealthlabs.com"
+#define myredirect_uri @"http://www.kittburglar.com"
 
 
 #define BPResult @"BPResult"
