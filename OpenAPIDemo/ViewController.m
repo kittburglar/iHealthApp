@@ -50,6 +50,7 @@
 #define appID @"6d8d73435c334451a87691ec54404514"
 #define appKey @"ece6d4d984dd4c7b835e7c04b367f769"
 #define myredirect_uri @"http://www.kittburglar.com"
+#define token_url @"https://api.ihealthlabs.com:8443/OpenApiV2/OAuthv2/userauthorization/";
 
 @interface ViewController ()
 
@@ -72,8 +73,30 @@
 //    NSString *strDate=[dateFormatter stringFromDate:date];
 //    NSString *str=[dateFormatter stringFromDate:strDate];
   //   NSArray *array = [NSTimeZone knownTimeZoneNames];
-    self.navigationItem.title=@"Please Login";
+    //[self.navigationController setNavigationBarHidden:YES];
+    //self.navigationItem.title=@"Please Login";
+    //self.loginButton.center = self.view.center;
+    self.loginButton.layer.cornerRadius = 5;
+    self.loginButton.clipsToBounds = YES;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:85.0f/255.0f green:98.0f/255.0f blue:112.0f/255.0f alpha:1.0f];
     
+    //millennial blue
+    //self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:2.0f/255.0f green:93.0f/255.0f blue:140.0f/255.0f alpha:1.0f];
+    
+    //Lickable Lips
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:164.0f/255.0f green:8.0f/255.0f blue:2.0f/255.0f alpha:1.0f];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTranslucent:NO];
+    UIImage *fbImage = [UIImage imageNamed:@"facebook.png"];
+    [self.facebookButton setImage:fbImage forState:UIControlStateNormal];
+    
+    UIImage *twitterImage = [UIImage imageNamed:@"twitter.png"];
+    [self.twitterButton setImage:twitterImage forState:UIControlStateNormal];
+    UIImage *googleImage = [UIImage imageNamed:@"google+.png"];
+    [self.googleButton setImage:googleImage forState:UIControlStateNormal];
 	// Do any additional setup after loading the view, typically from a nib.
         engine=[[AdEngines alloc]initWithAppKey:appID appSecret:appKey];
         [engine setDelegate:self];
@@ -85,6 +108,10 @@
 - (void)viewDidUnload
 {
     [self setTestLab:nil];
+    [self setLoginButton:nil];
+    [self setFacebookButton:nil];
+    [self setGoogleButton:nil];
+    [self setTwitterButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -105,6 +132,24 @@
     [engine setDelegate:self];
     [engine logIn];
     
+}
+
+- (IBAction)register:(id)sender {
+    AdAuthWebView *authWebView=[[AdAuthWebView alloc]init];
+    [authWebView setDelegate:self];
+    //[authWebView loadRequestWithURL:[NSURL URLWithString:urlString]];
+    [authWebView show:YES];
+    [authWebView release];
+}
+
+-(void)buttonHighlight:(id)sender{
+    [self.loginButton setBackgroundColor:[UIColor darkGrayColor]];
+    NSLog(@"Button highlight");
+}
+
+-(void)buttonNormal:(id)sender{
+    [self.loginButton setBackgroundColor:[UIColor whiteColor]];
+    NSLog(@"Button normal");
 }
 
 #pragma mark  didLoginDelegate
@@ -165,6 +210,16 @@
 
 - (void)dealloc {
     [_testLab release];
+    [_loginButton release];
+    [_facebookButton release];
+    [_googleButton release];
+    [_twitterButton release];
     [super dealloc];
+}
+- (IBAction)facebookButton:(id)sender {
+}
+- (IBAction)googleButton:(id)sender {
+}
+- (IBAction)twitterButton:(id)sender {
 }
 @end

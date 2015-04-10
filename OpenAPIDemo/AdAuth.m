@@ -49,7 +49,7 @@
 -(void)startAuth
 {
     //NSLog(@"%@",redirectURI);
-    NSDictionary *authParams=[NSDictionary dictionaryWithObjectsAndKeys:appID,@"client_id",@"code", @"response_type",redirectURI,@"redirect_uri",@"OpenApiWeight+OpenApiBP+OpenApiSpO2+OpenApiBG+OpenApiActivity+OpenApiSleep",@"APIName",@"OpenApiWeight+OpenApiBP+OpenApiSpO2+OpenApiBG+OpenApiActivity+OpenApiSleep",@"RequiredAPIName", nil];
+    NSDictionary *authParams=[NSDictionary dictionaryWithObjectsAndKeys:appID,@"client_id",@"code", @"response_type",redirectURI,@"redirect_uri",@"OpenApiWeight+OpenApiBP+OpenApiSpO2+OpenApiBG+OpenApiActivity+OpenApiSleep+OpenApiUserInfo",@"APIName",@"OpenApiWeight+OpenApiBP+OpenApiSpO2+OpenApiBG+OpenApiActivity+OpenApiSleep+OpenApiUserInfo",@"RequiredAPIName", nil];
     
     NSString *urlString=[self getUrlString:kAuthURL params:authParams];
     NSLog(@"%@",urlString);

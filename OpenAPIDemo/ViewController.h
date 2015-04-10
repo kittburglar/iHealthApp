@@ -16,6 +16,14 @@
 @property (retain, nonatomic) IBOutlet UILabel *testLab;
 @property (retain, nonatomic) AdEngines *engine;
 -(IBAction)login:(id)sender;
+- (IBAction)register:(id)sender;
 - (void)presentDetailDataViewController:(BOOL)animated;
+@property (retain, nonatomic) IBOutlet UIButton *loginButton;
+@property (retain, nonatomic) IBOutlet UIButton *facebookButton;
+- (IBAction)facebookButton:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *googleButton;
+- (IBAction)googleButton:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *twitterButton;
+- (IBAction)twitterButton:(id)sender;
 
 @end

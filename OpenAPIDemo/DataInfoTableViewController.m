@@ -6,6 +6,7 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
+#import "DataRequestViewController.h"
 #import "DataInfoTableViewController.h"
 #import "JSON.h"
 #import "AdEngines.h"
@@ -89,6 +90,7 @@
 //    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"返回"
 //                                                                           style:UIBarButtonItemStyleDone
 //                                                                          target:self action:@selector(dismissBPTableView)];
+
 }
 
 - (void)viewDidUnload
@@ -156,8 +158,6 @@
         NSString *hr=[NSString stringWithFormat:@"%@",[detail objectForKey:@"HR"]];
         [dateFormatter release];
         cell.myLab.text=[NSString stringWithFormat:@"%@\nHP:%@ mmHg       LP:%@ mmHg/n  HR:%@ Beats/Min",strDate,hp,lp,hr];
-
-       
         
     }else if ([self.sourceTye isEqualToString:OXResult]){
         NSString *spo2=[NSString stringWithFormat:@"%@",[detail objectForKey:@"BO"]];
@@ -171,22 +171,33 @@
         
     }
     else if ([self.sourceTye isEqualToString:BGResult]){
+
+        
         cell.myLab.font=[UIFont systemFontOfSize:15];
         NSString *bgResult=[NSString stringWithFormat:@"%.1f",[[detail objectForKey:@"BG"]floatValue]];
         NSString *dinnerSituation=[NSString stringWithFormat:@"%@",[detail objectForKey:@"DinnerSituation"]];
         NSString *drugSituation=[NSString stringWithFormat:@"%@",[detail objectForKey:@"DrugSituation"]];
+        NSString *dataID=[NSString stringWithFormat:@"%@", [detail objectForKey:@"DataID"]];
         cell.myLab.text=[NSString stringWithFormat:@"%@   BGResult:%@ mg/dl\nDinnerSituation:%@\nDrugSituation:%@",strDate,bgResult,dinnerSituation,drugSituation];
         AdEngines *engine=[[AdEngines alloc]initWithAppKey:appID appSecret:appKey];
+        
+        NSString *name = [DataRequestViewController nickName];
+        NSLog(@"name is: %@", name);
+        
         NSLog(@"%@   UserID:%@\nBGResult:%@ mg/dl\nDinnerSituation:%@\nDrugSituation:%@",strDate,engine.userID,bgResult,dinnerSituation,drugSituation);
         [dateFormatter release];
         
+        
+        
+        
         //post data up to PHP
-        NSString *noteDataString = [NSString stringWithFormat:@"userid=%@&bgresult=%@&dinnersituation=%@&drugsituation=%@", engine.userID, bgResult, dinnerSituation, drugSituation];
+        NSString *noteDataString = [NSString stringWithFormat:@"userid=%@&bgresult=%@&dinnersituation=%@&drugsituation=%@&dataid=%@&nickname=%@", engine.userID, bgResult, dinnerSituation, drugSituation, dataID,name];
         
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
         
         NSURL * url = [NSURL URLWithString:@"http://kittburglar.com/save.php"];
+        //NSURL * url = [NSURL URLWithString:@"http://assyrianhealthalliance.org/ihealth/save.php"];
         NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
         [urlRequest setHTTPMethod:@"POST"];
         [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
@@ -208,6 +219,8 @@
         }];
         
         [dataTask resume];
+        
+        
     }
     else if ([self.sourceTye isEqualToString:ActivityResult]){
         NSString *cal=[NSString stringWithFormat:@"%@",[detail objectForKey:@"Calories"]];

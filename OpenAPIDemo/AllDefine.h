@@ -48,6 +48,7 @@
 #define myBGSV @"472efb2f8d3b4276a7149d82f1bc14a6"
 #define mySleepSV @"f5fb2670a7e74762af72aaa1cb132c2f"
 #define myActivitySV @"23cebb55e61045e1ba1f4a5088cf3613"
+#define myUserInfoSV @"5da30cbf8b284eb69253b90d96559ce2"
 //#define myredirect_uri @"http://www.ihealthlabs.com"
 #define myredirect_uri @"http://www.kittburglar.com"
 

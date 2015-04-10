@@ -37,6 +37,16 @@
 		0FE0A3A8157DA04400A88338 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FE0A3A7157DA04400A88338 /* down.png */; };
 		0FED310D179FA2F10041A11D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FED3108179FA2F10041A11D /* ViewController.m */; };
 		0FED310E179FA2F10041A11D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FED3109179FA2F10041A11D /* ViewController.xib */; };
+		F83803F11AD43619008EEBE6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83803F01AD43619008EEBE6 /* Media.xcassets */; };
+		F83803F31AD50ECE008EEBE6 /* afha.png in Resources */ = {isa = PBXBuildFile; fileRef = F83803F21AD50ECE008EEBE6 /* afha.png */; };
+		F83803F51AD511DE008EEBE6 /* afhatrans.png in Resources */ = {isa = PBXBuildFile; fileRef = F83803F41AD511DE008EEBE6 /* afhatrans.png */; };
+		F83803F71AD53533008EEBE6 /* afhanologo.png in Resources */ = {isa = PBXBuildFile; fileRef = F83803F61AD53532008EEBE6 /* afhanologo.png */; };
+		F83804041AD60BD6008EEBE6 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F83803FE1AD60BD6008EEBE6 /* facebook.png */; };
+		F83804051AD60BD6008EEBE6 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83803FF1AD60BD6008EEBE6 /* facebook@2x.png */; };
+		F83804061AD60BD6008EEBE6 /* google+.png in Resources */ = {isa = PBXBuildFile; fileRef = F83804001AD60BD6008EEBE6 /* google+.png */; };
+		F83804071AD60BD6008EEBE6 /* google+@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83804011AD60BD6008EEBE6 /* google+@2x.png */; };
+		F83804081AD60BD6008EEBE6 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = F83804021AD60BD6008EEBE6 /* twitter.png */; };
+		F83804091AD60BD6008EEBE6 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83804031AD60BD6008EEBE6 /* twitter@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +101,16 @@
 		0FED3107179FA2F10041A11D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0FED3108179FA2F10041A11D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0FED3109179FA2F10041A11D /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		F83803F01AD43619008EEBE6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		F83803F21AD50ECE008EEBE6 /* afha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = afha.png; sourceTree = "<group>"; };
+		F83803F41AD511DE008EEBE6 /* afhatrans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = afhatrans.png; sourceTree = "<group>"; };
+		F83803F61AD53532008EEBE6 /* afhanologo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = afhanologo.png; sourceTree = "<group>"; };
+		F83803FE1AD60BD6008EEBE6 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		F83803FF1AD60BD6008EEBE6 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
+		F83804001AD60BD6008EEBE6 /* google+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google+.png"; sourceTree = "<group>"; };
+		F83804011AD60BD6008EEBE6 /* google+@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google+@2x.png"; sourceTree = "<group>"; };
+		F83804021AD60BD6008EEBE6 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		F83804031AD60BD6008EEBE6 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,12 +185,22 @@
 		0F4FA94D157393B5002A9F51 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F83803FE1AD60BD6008EEBE6 /* facebook.png */,
+				F83803FF1AD60BD6008EEBE6 /* facebook@2x.png */,
+				F83804001AD60BD6008EEBE6 /* google+.png */,
+				F83804011AD60BD6008EEBE6 /* google+@2x.png */,
+				F83804021AD60BD6008EEBE6 /* twitter.png */,
+				F83804031AD60BD6008EEBE6 /* twitter@2x.png */,
+				F83803F41AD511DE008EEBE6 /* afhatrans.png */,
+				F83803F61AD53532008EEBE6 /* afhanologo.png */,
+				F83803F21AD50ECE008EEBE6 /* afha.png */,
 				0FE0A3A7157DA04400A88338 /* down.png */,
 				0FE0A3A4157DA03B00A88338 /* up.png */,
 				0F4FA94E157393B5002A9F51 /* OpenAPIDemo-Info.plist */,
 				0F4FA94F157393B5002A9F51 /* InfoPlist.strings */,
 				0F4FA952157393B5002A9F51 /* main.m */,
 				0F4FA954157393B5002A9F51 /* OpenAPIDemo-Prefix.pch */,
+				F83803F01AD43619008EEBE6 /* Media.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -275,12 +305,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F4FA951157393B5002A9F51 /* InfoPlist.strings in Resources */,
+				F83803F31AD50ECE008EEBE6 /* afha.png in Resources */,
+				F83804091AD60BD6008EEBE6 /* twitter@2x.png in Resources */,
+				F83804051AD60BD6008EEBE6 /* facebook@2x.png in Resources */,
+				F83804071AD60BD6008EEBE6 /* google+@2x.png in Resources */,
 				0FE0A3A5157DA03B00A88338 /* up.png in Resources */,
 				0FE0A3A8157DA04400A88338 /* down.png in Resources */,
 				0FDCC93E157EEFD200F799F8 /* DetailDataCell.xib in Resources */,
+				F83803F51AD511DE008EEBE6 /* afhatrans.png in Resources */,
 				0FED310E179FA2F10041A11D /* ViewController.xib in Resources */,
+				F83803F71AD53533008EEBE6 /* afhanologo.png in Resources */,
+				F83804081AD60BD6008EEBE6 /* twitter.png in Resources */,
 				0F17EB6317A64C7900C9E16B /* myCell.xib in Resources */,
+				F83804061AD60BD6008EEBE6 /* google+.png in Resources */,
 				0F092A7D17AFA22000E77CCE /* DataRequestViewController.xib in Resources */,
+				F83804041AD60BD6008EEBE6 /* facebook.png in Resources */,
+				F83803F11AD43619008EEBE6 /* Media.xcassets in Resources */,
 				0F092A7F17AFA22000E77CCE /* DataInfoTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +413,8 @@
 		0F4FA961157393B5002A9F51 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenAPIDemo/OpenAPIDemo-Prefix.pch";
 				INFOPLIST_FILE = "OpenAPIDemo/OpenAPIDemo-Info.plist";
@@ -386,6 +428,8 @@
 		0F4FA962157393B5002A9F51 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenAPIDemo/OpenAPIDemo-Prefix.pch";
 				INFOPLIST_FILE = "OpenAPIDemo/OpenAPIDemo-Info.plist";

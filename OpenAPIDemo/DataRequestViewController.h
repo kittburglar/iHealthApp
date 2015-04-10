@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AdEngines.h"
 
+//extern NSString *nickName;
 
 @interface DataRequestViewController : UIViewController{
     AdEngines *engine;
@@ -17,13 +18,23 @@
     
     NSMutableArray *weightArray;
     NSMutableArray *bpArray;
+    NSMutableData *_responseData;
+    NSURLConnection *connection;
+    NSMutableData *infoData;
     
-  
 }
++ (NSString*)nickName;
+
 - (IBAction)getSleep:(id)sender;
 - (IBAction)getBG:(id)sender;
 - (IBAction)GetOX:(id)sender;
 - (IBAction)getActivityInfo:(id)sender;
+-(void)connect:(NSDictionary *)dic;
+
+@property (retain, nonatomic)NSString * dataType;
+@property (retain, nonatomic) NSURLConnection *connection;
+@property (retain, nonatomic) NSMutableData *infoData;
+
 @property (retain, nonatomic) IBOutlet UIButton *bgButton;
 @property (retain, nonatomic) IBOutlet UIButton *sleepButton;
 
@@ -38,7 +49,6 @@
 
 @property (retain, nonatomic) NSMutableArray *weightArray;
 @property (retain, nonatomic) NSMutableArray *bpArray;
-
 
 -(IBAction)getWeightInfo:(id)sender;
 -(IBAction)getBPIfo:(id)sender;

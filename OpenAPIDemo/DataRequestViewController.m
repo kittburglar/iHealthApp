@@ -10,10 +10,13 @@
 #import "DataInfoTableViewController.h"
 #import "AllDefine.h"
 #import "AdRequest.h"
+#import "JSON.h"
 
 @interface DataRequestViewController ()
 
 @end
+
+static NSString* nickName = nil;
 
 @implementation DataRequestViewController
 @synthesize engine;
@@ -21,10 +24,16 @@
 @synthesize weightArray;
 @synthesize bpArray;
 
+#define appID @"6d8d73435c334451a87691ec54404514"
+#define appKey @"ece6d4d984dd4c7b835e7c04b367f769"
+#define myredirect_uri @"http://www.kittburglar.com"
+#define token_url @"https://api.ihealthlabs.com:8443/OpenApiV2/OAuthv2/"
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         // Custom initialization
     }
     return self;
@@ -41,12 +50,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
    // didReceiveRequestData
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didReceiveRequestData:) name:@"didReceiveRequestData" object:nil];
-    
+    [self.navigationController setNavigationBarHidden:NO];
     self.navigationItem.title=@"Data Request";
+    //self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:85.0f/255.0f green:98.0f/255.0f blue:112.0f/255.0f alpha:1.0f];
+    //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:85.0f/255.0f green:98.0f/255.0f blue:112.0f/255.0f alpha:1.0f]];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:85.0f/255.0f green:98.0f/255.0f blue:112.0f/255.0f alpha:1.0f];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTranslucent:NO];
     
-  
     // Do any additional setup after loading the view from its nib.
 }
 -(void)didReceiveRequestData:(NSNotification *)notify{
@@ -139,7 +155,20 @@
 - (IBAction)getBG:(id)sender {
     UIButton *button=(UIButton *)sender;
     button.enabled=NO;
+    //get user info
+    AdEngines *engine=[[AdEngines alloc]initWithAppKey:appID appSecret:appKey];
+    NSString *theBaseURL=[NSString stringWithFormat:@"%@%@.json/?client_id=%@&client_secret=%@&redirect_uri=%@&access_token=%@&sc=%@&sv=%@&locale=en_US",kBaseInfoURL,engine.userID,appID,appKey,myredirect_uri,engine.accessToken,mysc,myUserInfoSV];
+    
+    NSLog(@"theBaseURL is: %@",theBaseURL);
+    NSURL *url2=[NSURL URLWithString:theBaseURL];
+    NSMutableURLRequest *request=[[NSMutableURLRequest alloc]initWithURL:url2];
+    connection=[[NSURLConnection alloc]initWithRequest:request delegate:self];
+    [connection start];
     [self gotoAskData:BGResult sv:myBGSV];
+    
+    
+    
+    
 }
 
 - (IBAction)GetOX:(id)sender {
@@ -184,6 +213,95 @@
     [_boButton release];
     [_bgButton release];
     [_sleepButton release];
-       [super dealloc];
+    [super dealloc];
 }
+
+#pragma mark connection delegate
+-(void)connection:(NSURLConnection *) connection didReceiveResponse:(NSURLResponse *)response
+{
+    if (infoData==nil) {
+        infoData=[[NSMutableData alloc]init];
+    }
+    
+}
+-(void)connection:(NSURLConnection *) connection didReceiveData:(NSData *)data
+{
+    [infoData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)theConnection
+{
+    [self handleResponseData:infoData];
+    
+    [infoData release];
+    infoData = nil;
+    
+    [connection cancel];
+    [connection release];
+    connection = nil;
+    
+}
+
+- (void)handleResponseData:(NSData *)data
+{
+    
+    NSError* error = nil;
+    id result = [self parseJSONData:data error:&error];
+    
+    if (error)
+    {
+        [self failedWithError:error];
+    }
+    else
+    {
+       
+        NSDictionary *dict=(NSDictionary *)result;
+        /*
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"didReceiveRequestData" object:self userInfo:dic];
+        */
+        [nickName release];
+        nickName = [[dict valueForKey:@"nickname"] retain];
+        NSLog(@"didReceiveRequestData-dic==%@",dict);
+        NSLog(@"nickname is: %@", nickName);
+        //[delegate requestDidReceiveData:result type:self.dataType];
+    }
+}
+
+- (id)parseJSONData:(NSData *)data error:(NSError **)error
+{
+    
+    NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    SBJSON *jsonParser = [[SBJSON alloc]init];
+    
+    NSError *parseError = nil;
+    id result = [jsonParser objectWithString:dataString error:&parseError];
+    
+    if (parseError)
+    {
+        
+    }
+    
+    [dataString release];
+    [jsonParser release];
+    
+    
+    if ([result isKindOfClass:[NSDictionary class]])
+    {
+        return result;
+    }
+    
+    return result;
+}
+
+
+- (void)failedWithError:(NSError *)error 
+{
+    
+    NSLog(@"Prase JSON failed");
+}
+
++ (NSString*)nickName {
+    return nickName;
+}
+
 @end
