@@ -18,5 +18,9 @@
 @property (retain, nonatomic)  UILabel *data1Lable;
 @property (retain, nonatomic)  UILabel *data2Lable;
 @property (retain, nonatomic)  UILabel *dateLable;
+@property (retain, nonatomic) IBOutlet UILabel *BGResultLabel;
+@property (retain, nonatomic) IBOutlet UILabel *dateLabel;
+@property (retain, nonatomic) IBOutlet UILabel *situationLabel;
+@property (retain, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

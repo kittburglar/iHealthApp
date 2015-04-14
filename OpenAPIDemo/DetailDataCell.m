@@ -33,6 +33,10 @@
     [data2Lable release];
     [dateLable release];
     [_myLab release];
+    [_BGResultLabel release];
+    [_dateLabel release];
+    [_situationLabel release];
+    [_titleLabel release];
     [super dealloc];
 }
 

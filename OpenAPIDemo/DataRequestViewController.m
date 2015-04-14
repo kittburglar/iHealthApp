@@ -55,16 +55,26 @@ static NSString* nickName = nil;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didReceiveRequestData:) name:@"didReceiveRequestData" object:nil];
     [self.navigationController setNavigationBarHidden:NO];
     self.navigationItem.title=@"Data Request";
-    //self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:85.0f/255.0f green:98.0f/255.0f blue:112.0f/255.0f alpha:1.0f];
-    //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:85.0f/255.0f green:98.0f/255.0f blue:112.0f/255.0f alpha:1.0f]];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:85.0f/255.0f green:98.0f/255.0f blue:112.0f/255.0f alpha:1.0f];
+    //Lickable Lips
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:164.0f/255.0f green:8.0f/255.0f blue:2.0f/255.0f alpha:1.0f];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [[UINavigationBar appearance] setTranslucent:NO];
+
+    [[UINavigationBar appearance] setTranslucent:NO];
     
     // Do any additional setup after loading the view from its nib.
-}
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+                                     style:UIBarButtonItemStylePlain
+                                    target:self
+                                                            action:@selector(logout:)];
+    //[self.navigationItem setLeftBarButtonItem:item animated:YES];
+    self.bgButton.layer.cornerRadius = 5;
+    self.bgButton.clipsToBounds = YES;
+    self.logoutButton.layer.cornerRadius = 5;
+    self.logoutButton.clipsToBounds = YES;
+    }
 -(void)didReceiveRequestData:(NSNotification *)notify{
     NSDictionary *dic=[notify userInfo];
     NSLog(@"didReceiveRequestData-dic==%@",dic);
@@ -119,6 +129,7 @@ static NSString* nickName = nil;
     [self setBoButton:nil];
     [self setBgButton:nil];
     [self setSleepButton:nil];
+    [self setLogoutButton:nil];
        [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -213,6 +224,7 @@ static NSString* nickName = nil;
     [_boButton release];
     [_bgButton release];
     [_sleepButton release];
+    [_logoutButton release];
     [super dealloc];
 }
 

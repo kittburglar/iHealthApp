@@ -146,7 +146,12 @@
     }
     NSString *dateString=[NSString stringWithFormat:@"%@",[detail objectForKey:@"MDate"]];
     NSDate *date=[NSDate dateWithTimeIntervalSince1970:[dateString intValue]];
-    NSString *strDate=[dateFormatter stringFromDate:date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateStyle:NSDateFormatterLongStyle]; // day, Full month and year
+    [df setTimeStyle:NSDateFormatterNoStyle];  // nothing
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString *strDate=[df stringFromDate:date];
     
     cell.myLab.font=[UIFont systemFontOfSize:17];
     if ([self.sourceTye isEqualToString:WeightResult]) {
@@ -176,9 +181,15 @@
         cell.myLab.font=[UIFont systemFontOfSize:15];
         NSString *bgResult=[NSString stringWithFormat:@"%.1f",[[detail objectForKey:@"BG"]floatValue]];
         NSString *dinnerSituation=[NSString stringWithFormat:@"%@",[detail objectForKey:@"DinnerSituation"]];
+        NSString *dinnerSituation2=[dinnerSituation stringByReplacingOccurrencesOfString:@"_" withString:@" "];
         NSString *drugSituation=[NSString stringWithFormat:@"%@",[detail objectForKey:@"DrugSituation"]];
+        NSString *drugSituation2=[drugSituation stringByReplacingOccurrencesOfString:@"_" withString:@" "];
         NSString *dataID=[NSString stringWithFormat:@"%@", [detail objectForKey:@"DataID"]];
-        cell.myLab.text=[NSString stringWithFormat:@"%@   BGResult:%@ mg/dl\nDinnerSituation:%@\nDrugSituation:%@",strDate,bgResult,dinnerSituation,drugSituation];
+        cell.myLab.text=[NSString stringWithFormat:@"%@",strDate];
+        cell.BGResultLabel.text=[NSString stringWithFormat:@"%@ mg/dl", bgResult];
+        cell.situationLabel.text=[NSString stringWithFormat:@"DinnerSituation: %@\nDrugSituation: %@",dinnerSituation2,drugSituation2];
+        cell.titleLabel.text = [NSString stringWithFormat:@"Blood Glucose Result:"];
+        //cell.myLab.text=[NSString stringWithFormat:@"%@   BGResult:%@ mg/dl\nDinnerSituation:%@\nDrugSituation:%@",strDate,bgResult,dinnerSituation,drugSituation];
         AdEngines *engine=[[AdEngines alloc]initWithAppKey:appID appSecret:appKey];
         
         NSString *name = [DataRequestViewController nickName];
@@ -251,7 +262,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 170;
 }
 
 /*

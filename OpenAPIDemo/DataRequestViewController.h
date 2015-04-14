@@ -49,6 +49,7 @@
 
 @property (retain, nonatomic) NSMutableArray *weightArray;
 @property (retain, nonatomic) NSMutableArray *bpArray;
+@property (retain, nonatomic) IBOutlet UIButton *logoutButton;
 
 -(IBAction)getWeightInfo:(id)sender;
 -(IBAction)getBPIfo:(id)sender;

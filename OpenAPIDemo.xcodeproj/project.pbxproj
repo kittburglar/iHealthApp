@@ -47,6 +47,7 @@
 		F83804071AD60BD6008EEBE6 /* google+@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83804011AD60BD6008EEBE6 /* google+@2x.png */; };
 		F83804081AD60BD6008EEBE6 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = F83804021AD60BD6008EEBE6 /* twitter.png */; };
 		F83804091AD60BD6008EEBE6 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83804031AD60BD6008EEBE6 /* twitter@2x.png */; };
+		F83C1A561ADD184300072A47 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = F83C1A551ADD184300072A47 /* heart.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		F83804011AD60BD6008EEBE6 /* google+@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google+@2x.png"; sourceTree = "<group>"; };
 		F83804021AD60BD6008EEBE6 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		F83804031AD60BD6008EEBE6 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
+		F83C1A551ADD184300072A47 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		0F4FA94D157393B5002A9F51 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F83C1A551ADD184300072A47 /* heart.png */,
 				F83803FE1AD60BD6008EEBE6 /* facebook.png */,
 				F83803FF1AD60BD6008EEBE6 /* facebook@2x.png */,
 				F83804001AD60BD6008EEBE6 /* google+.png */,
@@ -320,6 +323,7 @@
 				F83804061AD60BD6008EEBE6 /* google+.png in Resources */,
 				0F092A7D17AFA22000E77CCE /* DataRequestViewController.xib in Resources */,
 				F83804041AD60BD6008EEBE6 /* facebook.png in Resources */,
+				F83C1A561ADD184300072A47 /* heart.png in Resources */,
 				F83803F11AD43619008EEBE6 /* Media.xcassets in Resources */,
 				0F092A7F17AFA22000E77CCE /* DataInfoTableViewController.xib in Resources */,
 			);
