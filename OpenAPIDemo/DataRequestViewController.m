@@ -8,6 +8,7 @@
 
 #import "DataRequestViewController.h"
 #import "DataInfoTableViewController.h"
+#import "OptionsTableViewController.h"
 #import "AllDefine.h"
 #import "AdRequest.h"
 #import "JSON.h"
@@ -50,6 +51,16 @@ static NSString* nickName = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Blood Glucose Data"
+                                                        message:@"Allow the Assyrian Family Health Alliance to collect data for research?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"No"
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+    }
+    ;
     
    // didReceiveRequestData
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didReceiveRequestData:) name:@"didReceiveRequestData" object:nil];
@@ -65,11 +76,11 @@ static NSString* nickName = nil;
     [[UINavigationBar appearance] setTranslucent:NO];
     
     // Do any additional setup after loading the view from its nib.
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Options"
                                      style:UIBarButtonItemStylePlain
                                     target:self
-                                                            action:@selector(logout:)];
-    //[self.navigationItem setLeftBarButtonItem:item animated:YES];
+                                                            action:@selector(options:)];
+    [self.navigationItem setLeftBarButtonItem:item animated:YES];
     self.bgButton.layer.cornerRadius = 5;
     self.bgButton.clipsToBounds = YES;
     self.logoutButton.layer.cornerRadius = 5;
@@ -217,6 +228,12 @@ static NSString* nickName = nil;
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
+-(void)options:(id)sender{
+    NSLog(@"Options pressed");
+    OptionsTableViewController *vc=[[OptionsTableViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)dealloc {
     [_weightButton release];
     [_oxButton release];
@@ -310,6 +327,20 @@ static NSString* nickName = nil;
 {
     
     NSLog(@"Prase JSON failed");
+}
+
+#pragma mark -Alert View Delegate Methods
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        NSLog(@"No pressed");
+        // Add the action here
+        //[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"dataRecording"];
+    } else {
+        NSLog(@"Ok pressed");
+        // Add another action here
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"dataRecording"];
+    }
 }
 
 + (NSString*)nickName {

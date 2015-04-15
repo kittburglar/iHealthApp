@@ -198,40 +198,39 @@
         NSLog(@"%@   UserID:%@\nBGResult:%@ mg/dl\nDinnerSituation:%@\nDrugSituation:%@",strDate,engine.userID,bgResult,dinnerSituation,drugSituation);
         [dateFormatter release];
         
-        
-        
-        
-        //post data up to PHP
-        NSString *noteDataString = [NSString stringWithFormat:@"userid=%@&bgresult=%@&dinnersituation=%@&drugsituation=%@&dataid=%@&nickname=%@", engine.userID, bgResult, dinnerSituation, drugSituation, dataID,name];
-        
-        NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-        NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
-        
-        NSURL * url = [NSURL URLWithString:@"http://kittburglar.com/save.php"];
-        //NSURL * url = [NSURL URLWithString:@"http://assyrianhealthalliance.org/ihealth/save.php"];
-        NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
-        [urlRequest setHTTPMethod:@"POST"];
-        [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *dataRaw, NSURLResponse *header, NSError *error) {
-            NSDictionary *json = [NSJSONSerialization
-                                  JSONObjectWithData:dataRaw
-                                  options:kNilOptions error:&error];
-            NSString *status = json[@"status"];
-            if([status isEqual:@"1"]){
-                //Success
-                printf("Successfully send data to php file!\n");
-                
-            } else {
-                printf("Failed to send data to php file!\n");
-                //Error
-                
-            }
-        }];
-        
-        [dataTask resume];
-        
-        
+        //Check if user wants to send data
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"dataRecording"]) {
+            //post data up to PHP
+            NSString *noteDataString = [NSString stringWithFormat:@"userid=%@&bgresult=%@&dinnersituation=%@&drugsituation=%@&dataid=%@&nickname=%@", engine.userID, bgResult, dinnerSituation, drugSituation, dataID,name];
+            
+            NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+            NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+            
+            NSURL * url = [NSURL URLWithString:@"http://kittburglar.com/save.php"];
+            //NSURL * url = [NSURL URLWithString:@"http://assyrianhealthalliance.org/ihealth/save.php"];
+            NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
+            [urlRequest setHTTPMethod:@"POST"];
+            [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
+            
+            NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *dataRaw, NSURLResponse *header, NSError *error) {
+                NSDictionary *json = [NSJSONSerialization
+                                      JSONObjectWithData:dataRaw
+                                      options:kNilOptions error:&error];
+                NSString *status = json[@"status"];
+                if([status isEqual:@"1"]){
+                    //Success
+                    printf("Successfully send data to php file!\n");
+                    
+                } else {
+                    printf("Failed to send data to php file!\n");
+                    //Error
+                    
+                }
+            }];
+            
+            [dataTask resume];
+
+        }
     }
     else if ([self.sourceTye isEqualToString:ActivityResult]){
         NSString *cal=[NSString stringWithFormat:@"%@",[detail objectForKey:@"Calories"]];

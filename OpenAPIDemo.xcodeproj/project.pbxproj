@@ -48,6 +48,8 @@
 		F83804081AD60BD6008EEBE6 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = F83804021AD60BD6008EEBE6 /* twitter.png */; };
 		F83804091AD60BD6008EEBE6 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F83804031AD60BD6008EEBE6 /* twitter@2x.png */; };
 		F83C1A561ADD184300072A47 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = F83C1A551ADD184300072A47 /* heart.png */; };
+		F8506BA61ADEA081003D64B5 /* OptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8506BA41ADEA081003D64B5 /* OptionsTableViewController.m */; };
+		F8506BA71ADEA081003D64B5 /* OptionsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8506BA51ADEA081003D64B5 /* OptionsTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +115,9 @@
 		F83804021AD60BD6008EEBE6 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		F83804031AD60BD6008EEBE6 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
 		F83C1A551ADD184300072A47 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		F8506BA31ADEA081003D64B5 /* OptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsTableViewController.h; path = ../OptionsTableViewController.h; sourceTree = "<group>"; };
+		F8506BA41ADEA081003D64B5 /* OptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsTableViewController.m; path = ../OptionsTableViewController.m; sourceTree = "<group>"; };
+		F8506BA51ADEA081003D64B5 /* OptionsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OptionsTableViewController.xib; path = ../OptionsTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +174,9 @@
 				0FED3107179FA2F10041A11D /* ViewController.h */,
 				0FED3108179FA2F10041A11D /* ViewController.m */,
 				0FED3109179FA2F10041A11D /* ViewController.xib */,
+				F8506BA31ADEA081003D64B5 /* OptionsTableViewController.h */,
+				F8506BA41ADEA081003D64B5 /* OptionsTableViewController.m */,
+				F8506BA51ADEA081003D64B5 /* OptionsTableViewController.xib */,
 				0F092A7617AFA22000E77CCE /* DataRequestViewController.h */,
 				0F092A7717AFA22000E77CCE /* DataRequestViewController.m */,
 				0F092A7817AFA22000E77CCE /* DataRequestViewController.xib */,
@@ -309,6 +317,7 @@
 			files = (
 				0F4FA951157393B5002A9F51 /* InfoPlist.strings in Resources */,
 				F83803F31AD50ECE008EEBE6 /* afha.png in Resources */,
+				F8506BA71ADEA081003D64B5 /* OptionsTableViewController.xib in Resources */,
 				F83804091AD60BD6008EEBE6 /* twitter@2x.png in Resources */,
 				F83804051AD60BD6008EEBE6 /* facebook@2x.png in Resources */,
 				F83804071AD60BD6008EEBE6 /* google+@2x.png in Resources */,
@@ -341,6 +350,7 @@
 				0F89C6801574E76000515D9F /* NSObject+SBJSON.m in Sources */,
 				0F89C6811574E76000515D9F /* NSString+SBJSON.m in Sources */,
 				0F89C6821574E76000515D9F /* SBJSON.m in Sources */,
+				F8506BA61ADEA081003D64B5 /* OptionsTableViewController.m in Sources */,
 				0F89C6831574E76000515D9F /* SBJsonBase.m in Sources */,
 				0F89C6841574E76000515D9F /* SBJsonParser.m in Sources */,
 				0F89C6851574E76000515D9F /* SBJsonWriter.m in Sources */,
