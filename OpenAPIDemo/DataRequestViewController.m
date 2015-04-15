@@ -80,7 +80,7 @@ static NSString* nickName = nil;
                                      style:UIBarButtonItemStylePlain
                                     target:self
                                                             action:@selector(options:)];
-    [self.navigationItem setLeftBarButtonItem:item animated:YES];
+    [self.navigationItem setRightBarButtonItem:item animated:YES];
     self.bgButton.layer.cornerRadius = 5;
     self.bgButton.clipsToBounds = YES;
     self.logoutButton.layer.cornerRadius = 5;
@@ -230,8 +230,8 @@ static NSString* nickName = nil;
 
 -(void)options:(id)sender{
     NSLog(@"Options pressed");
-    OptionsTableViewController *vc=[[OptionsTableViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    OptionsTableViewController *vc2=[[OptionsTableViewController alloc]init];
+    [self.navigationController pushViewController:vc2 animated:YES];
 }
 
 - (void)dealloc {

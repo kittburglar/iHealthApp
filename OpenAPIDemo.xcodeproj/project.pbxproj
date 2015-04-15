@@ -50,6 +50,8 @@
 		F83C1A561ADD184300072A47 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = F83C1A551ADD184300072A47 /* heart.png */; };
 		F8506BA61ADEA081003D64B5 /* OptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8506BA41ADEA081003D64B5 /* OptionsTableViewController.m */; };
 		F8506BA71ADEA081003D64B5 /* OptionsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8506BA51ADEA081003D64B5 /* OptionsTableViewController.xib */; };
+		F8506BAB1ADEB231003D64B5 /* OptionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8506BA91ADEB231003D64B5 /* OptionsTableViewCell.m */; };
+		F8506BAC1ADEB231003D64B5 /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8506BAA1ADEB231003D64B5 /* OptionsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +120,9 @@
 		F8506BA31ADEA081003D64B5 /* OptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsTableViewController.h; path = ../OptionsTableViewController.h; sourceTree = "<group>"; };
 		F8506BA41ADEA081003D64B5 /* OptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsTableViewController.m; path = ../OptionsTableViewController.m; sourceTree = "<group>"; };
 		F8506BA51ADEA081003D64B5 /* OptionsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OptionsTableViewController.xib; path = ../OptionsTableViewController.xib; sourceTree = "<group>"; };
+		F8506BA81ADEB231003D64B5 /* OptionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsTableViewCell.h; sourceTree = "<group>"; };
+		F8506BA91ADEB231003D64B5 /* OptionsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsTableViewCell.m; sourceTree = "<group>"; };
+		F8506BAA1ADEB231003D64B5 /* OptionsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,15 +179,18 @@
 				0FED3107179FA2F10041A11D /* ViewController.h */,
 				0FED3108179FA2F10041A11D /* ViewController.m */,
 				0FED3109179FA2F10041A11D /* ViewController.xib */,
-				F8506BA31ADEA081003D64B5 /* OptionsTableViewController.h */,
-				F8506BA41ADEA081003D64B5 /* OptionsTableViewController.m */,
-				F8506BA51ADEA081003D64B5 /* OptionsTableViewController.xib */,
 				0F092A7617AFA22000E77CCE /* DataRequestViewController.h */,
 				0F092A7717AFA22000E77CCE /* DataRequestViewController.m */,
 				0F092A7817AFA22000E77CCE /* DataRequestViewController.xib */,
 				0F092A7917AFA22000E77CCE /* DataInfoTableViewController.h */,
 				0F092A7A17AFA22000E77CCE /* DataInfoTableViewController.m */,
 				0F092A7B17AFA22000E77CCE /* DataInfoTableViewController.xib */,
+				F8506BA81ADEB231003D64B5 /* OptionsTableViewCell.h */,
+				F8506BA91ADEB231003D64B5 /* OptionsTableViewCell.m */,
+				F8506BAA1ADEB231003D64B5 /* OptionsTableViewCell.xib */,
+				F8506BA31ADEA081003D64B5 /* OptionsTableViewController.h */,
+				F8506BA41ADEA081003D64B5 /* OptionsTableViewController.m */,
+				F8506BA51ADEA081003D64B5 /* OptionsTableViewController.xib */,
 				0FDCC939157EEFBC00F799F8 /* DetailDataCell.h */,
 				0FDCC93A157EEFBC00F799F8 /* DetailDataCell.m */,
 				0FDCC93D157EEFD200F799F8 /* DetailDataCell.xib */,
@@ -332,6 +340,7 @@
 				F83804061AD60BD6008EEBE6 /* google+.png in Resources */,
 				0F092A7D17AFA22000E77CCE /* DataRequestViewController.xib in Resources */,
 				F83804041AD60BD6008EEBE6 /* facebook.png in Resources */,
+				F8506BAC1ADEB231003D64B5 /* OptionsTableViewCell.xib in Resources */,
 				F83C1A561ADD184300072A47 /* heart.png in Resources */,
 				F83803F11AD43619008EEBE6 /* Media.xcassets in Resources */,
 				0F092A7F17AFA22000E77CCE /* DataInfoTableViewController.xib in Resources */,
@@ -357,6 +366,7 @@
 				0FDCC93B157EEFBC00F799F8 /* DetailDataCell.m in Sources */,
 				0F9FA47A15B3A92F00A5313E /* SFHFKeychainUtils.m in Sources */,
 				0FED310D179FA2F10041A11D /* ViewController.m in Sources */,
+				F8506BAB1ADEB231003D64B5 /* OptionsTableViewCell.m in Sources */,
 				0F17EB5C17A5F7DF00C9E16B /* AdEngines.m in Sources */,
 				0F17EB5D17A5F7DF00C9E16B /* AdAuth.m in Sources */,
 				0F17EB5E17A5F7DF00C9E16B /* AdAuthWebView.m in Sources */,
@@ -432,7 +442,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenAPIDemo/OpenAPIDemo-Prefix.pch";
 				INFOPLIST_FILE = "OpenAPIDemo/OpenAPIDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -447,7 +457,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenAPIDemo/OpenAPIDemo-Prefix.pch";
 				INFOPLIST_FILE = "OpenAPIDemo/OpenAPIDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

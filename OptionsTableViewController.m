@@ -14,6 +14,7 @@
 
 @implementation OptionsTableViewController
 
+@synthesize optionscell;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -34,24 +35,36 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
-/*
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
     // Configure the cell...
+    static NSString *CellIdentifier = @"Cell";
+    OptionsTableViewCell *cell=(OptionsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell==nil) {
+        [[NSBundle mainBundle] loadNibNamed:@"OptionsTableViewCell" owner:self options:nil];
+        cell=optionscell;
+    }
+    if (indexPath.row == 0) {
+        cell.OptionsLabel.text = [NSString stringWithFormat:@"Send Data"];
+    }
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

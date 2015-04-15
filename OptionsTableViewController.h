@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OptionsTableViewCell.h"
 
-@interface OptionsTableViewController : UITableViewController
+@interface OptionsTableViewController : UITableViewController{
+    IBOutlet OptionsTableViewCell *optionscell;
+}
+
+@property (retain, nonatomic) OptionsTableViewCell *optionscell;
 
 @end
