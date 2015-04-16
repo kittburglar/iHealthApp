@@ -11,5 +11,6 @@
 @interface OptionsTableViewCell : UITableViewCell
 @property (retain, nonatomic) IBOutlet UILabel *OptionsLabel;
 @property (retain, nonatomic) IBOutlet UISwitch *OptionsSwitch;
+- (IBAction)OptionsSwitchChanged:(id)sender;
 
 @end

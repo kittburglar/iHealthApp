@@ -51,7 +51,11 @@ static NSString* nickName = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"AlertLaunch"])
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        // This is the first launch ever
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Blood Glucose Data"
                                                         message:@"Allow the Assyrian Family Health Alliance to collect data for research?"
                                                        delegate:self
@@ -60,7 +64,6 @@ static NSString* nickName = nil;
         [alert show];
         [alert release];
     }
-    ;
     
    // didReceiveRequestData
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didReceiveRequestData:) name:@"didReceiveRequestData" object:nil];

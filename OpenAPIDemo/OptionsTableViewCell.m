@@ -25,4 +25,7 @@
     [_OptionsSwitch release];
     [super dealloc];
 }
+- (IBAction)OptionsSwitchChanged:(id)sender {
+        [[NSUserDefaults standardUserDefaults] setBool:self.OptionsSwitch.on forKey:@"dataRecording"];
+}
 @end

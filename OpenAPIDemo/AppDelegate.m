@@ -31,7 +31,21 @@
     self.nav=[[UINavigationController alloc]initWithRootViewController:self.viewController];
     self.window.rootViewController = self.nav;
     [self.window makeKeyAndVisible];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],@"firstLaunch",[NSNumber numberWithBool:NO],@"dataRecording" ,nil]];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+    {
+        // app already launched
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"AlertLaunch"];
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"dataRecording"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AlertLaunch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        // This is the first launch ever
+    }
+    
     return YES;
 }
 
