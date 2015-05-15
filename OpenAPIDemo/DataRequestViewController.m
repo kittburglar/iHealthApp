@@ -12,6 +12,7 @@
 #import "AllDefine.h"
 #import "AdRequest.h"
 #import "JSON.h"
+#import "InfoViewController.h"
 
 @interface DataRequestViewController ()
 
@@ -61,6 +62,9 @@ static NSString* nickName = nil;
                                                        delegate:self
                                               cancelButtonTitle:@"No"
                                               otherButtonTitles:@"OK", nil];
+        InfoViewController * vc = [[InfoViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
+        
         [alert show];
         [alert release];
     }

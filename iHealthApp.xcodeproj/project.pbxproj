@@ -52,6 +52,8 @@
 		F8506BA71ADEA081003D64B5 /* OptionsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8506BA51ADEA081003D64B5 /* OptionsTableViewController.xib */; };
 		F8506BAB1ADEB231003D64B5 /* OptionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8506BA91ADEB231003D64B5 /* OptionsTableViewCell.m */; };
 		F8506BAC1ADEB231003D64B5 /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8506BAA1ADEB231003D64B5 /* OptionsTableViewCell.xib */; };
+		F876AA651B05F2BF003B959D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F876AA631B05F2BF003B959D /* InfoViewController.m */; };
+		F876AA661B05F2BF003B959D /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F876AA641B05F2BF003B959D /* InfoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +125,9 @@
 		F8506BA81ADEB231003D64B5 /* OptionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsTableViewCell.h; sourceTree = "<group>"; };
 		F8506BA91ADEB231003D64B5 /* OptionsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsTableViewCell.m; sourceTree = "<group>"; };
 		F8506BAA1ADEB231003D64B5 /* OptionsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsTableViewCell.xib; sourceTree = "<group>"; };
+		F876AA621B05F2BF003B959D /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		F876AA631B05F2BF003B959D /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		F876AA641B05F2BF003B959D /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +184,9 @@
 				0FED3107179FA2F10041A11D /* ViewController.h */,
 				0FED3108179FA2F10041A11D /* ViewController.m */,
 				0FED3109179FA2F10041A11D /* ViewController.xib */,
+				F876AA621B05F2BF003B959D /* InfoViewController.h */,
+				F876AA631B05F2BF003B959D /* InfoViewController.m */,
+				F876AA641B05F2BF003B959D /* InfoViewController.xib */,
 				0F092A7617AFA22000E77CCE /* DataRequestViewController.h */,
 				0F092A7717AFA22000E77CCE /* DataRequestViewController.m */,
 				0F092A7817AFA22000E77CCE /* DataRequestViewController.xib */,
@@ -301,7 +309,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 0F4FA93C157393B5002A9F51 /* Build configuration list for PBXProject "OpenAPIDemo" */;
+			buildConfigurationList = 0F4FA93C157393B5002A9F51 /* Build configuration list for PBXProject "iHealthApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -331,6 +339,7 @@
 				F83804071AD60BD6008EEBE6 /* google+@2x.png in Resources */,
 				0FE0A3A5157DA03B00A88338 /* up.png in Resources */,
 				0FE0A3A8157DA04400A88338 /* down.png in Resources */,
+				F876AA661B05F2BF003B959D /* InfoViewController.xib in Resources */,
 				0FDCC93E157EEFD200F799F8 /* DetailDataCell.xib in Resources */,
 				F83803F51AD511DE008EEBE6 /* afhatrans.png in Resources */,
 				0FED310E179FA2F10041A11D /* ViewController.xib in Resources */,
@@ -359,6 +368,7 @@
 				0F89C6801574E76000515D9F /* NSObject+SBJSON.m in Sources */,
 				0F89C6811574E76000515D9F /* NSString+SBJSON.m in Sources */,
 				0F89C6821574E76000515D9F /* SBJSON.m in Sources */,
+				F876AA651B05F2BF003B959D /* InfoViewController.m in Sources */,
 				F8506BA61ADEA081003D64B5 /* OptionsTableViewController.m in Sources */,
 				0F89C6831574E76000515D9F /* SBJsonBase.m in Sources */,
 				0F89C6841574E76000515D9F /* SBJsonParser.m in Sources */,
@@ -437,12 +447,14 @@
 		0F4FA961157393B5002A9F51 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenAPIDemo/OpenAPIDemo-Prefix.pch";
 				INFOPLIST_FILE = "OpenAPIDemo/OpenAPIDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -452,12 +464,13 @@
 		0F4FA962157393B5002A9F51 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenAPIDemo/OpenAPIDemo-Prefix.pch";
 				INFOPLIST_FILE = "OpenAPIDemo/OpenAPIDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -467,7 +480,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0F4FA93C157393B5002A9F51 /* Build configuration list for PBXProject "OpenAPIDemo" */ = {
+		0F4FA93C157393B5002A9F51 /* Build configuration list for PBXProject "iHealthApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0F4FA95E157393B5002A9F51 /* Debug */,

@@ -25,5 +25,6 @@
 - (IBAction)googleButton:(id)sender;
 @property (retain, nonatomic) IBOutlet UIButton *twitterButton;
 - (IBAction)twitterButton:(id)sender;
+- (IBAction)testButton:(id)sender;
 
 @end

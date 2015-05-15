@@ -111,7 +111,7 @@
 - (void)sizeToFitOrientation:(UIInterfaceOrientation)orientation
 {
     [self setTransform:CGAffineTransformIdentity];
-    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
     if (UIInterfaceOrientationIsLandscape(orientation))
     {
         [self setFrame:CGRectMake(0, 0, 480, 320)];
@@ -122,14 +122,22 @@
     }
     else
     {
-        [self setFrame:CGRectMake(0, 0, 320, 480)];
-        [panelView setFrame:CGRectMake(10, 30, 300, 440)];
-        [containerView setFrame:CGRectMake(10, 10, 280, 420)];
-        [webView setFrame:CGRectMake(0, 0, 280, 420)];
-        [indicatorView setCenter:CGPointMake(160, 240)];
+        //[self setFrame:CGRectMake(0, 0, 320, 480)];
+        [self setFrame:screenRect];
+        //[panelView setFrame:CGRectMake(10, 30, 300, 440)];
+        [panelView setFrame:CGRectMake(10, 30, screenRect.size.width - 20, screenRect.size.height- 40)];
+        //[containerView setFrame:CGRectMake(10, 10, 280, 420)];
+        [containerView setFrame:CGRectMake(panelView.bounds.origin.x, panelView.bounds.origin.y, panelView.bounds.size.width, panelView.bounds.size.height)];
+        //[webView setFrame:CGRectMake(0, 0, 280, 420)];
+        [webView setFrame:CGRectMake(containerView.bounds.origin.x + 10, containerView.bounds.origin.y + 10, containerView.bounds.size.width - 20, containerView.bounds.size.height - 20)];
+        //[indicatorView setCenter:CGPointMake(160, 240)];
+        [indicatorView setCenter:CGPointMake(screenRect.size.width/2, screenRect.size.height/2)];
+
     }
     
-    [self setCenter:CGPointMake(160, 240)];
+    //[self setCenter:CGPointMake(160, 240)];
+    [self setCenter:CGPointMake(screenRect.size.width/2, screenRect.size.height/2)];
+    
     
     [self setTransform:[self transformForOrientation:orientation]];
     
@@ -312,7 +320,9 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView
 {
-	[indicatorView stopAnimating];
+	
+    
+    [indicatorView stopAnimating];
 }
 
 - (void)webView:(UIWebView *)aWebView didFailLoadWithError:(NSError *)error

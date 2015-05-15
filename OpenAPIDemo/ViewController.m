@@ -10,6 +10,8 @@
 #import "AdEngines.h"
 #import "DataRequestViewController.h"
 #import "AllDefine.h"
+#import "InfoViewController.h"
+
 
 
 //replace your appkey and appID 输入你的appID和密码
@@ -221,6 +223,11 @@
 - (IBAction)googleButton:(id)sender {
 }
 - (IBAction)twitterButton:(id)sender {
+}
+
+- (IBAction)testButton:(id)sender {
+    InfoViewController * vc = [[InfoViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

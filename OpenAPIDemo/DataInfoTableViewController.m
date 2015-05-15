@@ -206,8 +206,8 @@
             NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
             NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
             
-            NSURL * url = [NSURL URLWithString:@"http://kittburglar.com/save.php"];
-            //NSURL * url = [NSURL URLWithString:@"http://assyrianhealthalliance.org/ihealth/save.php"];
+            //NSURL * url = [NSURL URLWithString:@"http://kittburglar.com/save.php"];
+            NSURL * url = [NSURL URLWithString:@"http://assyrianhealthalliance.org/ihealth/save.php"];
             NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
             [urlRequest setHTTPMethod:@"POST"];
             [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
