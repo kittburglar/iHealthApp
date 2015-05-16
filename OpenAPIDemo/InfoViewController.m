@@ -96,12 +96,13 @@
     NSString *phonenum = [NSString stringWithFormat:@"%@", _phoneText.text];
     NSString *secphonenum = [NSString stringWithFormat:@"%@", _secondaryNumText.text];
     NSString *email = [NSString stringWithFormat:@"%@", _emailText.text];
+    NSString *userid = [NSString stringWithFormat:@"%@", engine.userID];
     
     
     //Check if user wants to send data
     //if ([[NSUserDefaults standardUserDefaults] boolForKey:@"dataRecording"]) {
         //post data up to PHP
-        NSString *noteDataString = [NSString stringWithFormat:@"firstname=%@&lastname=%@&address=%@&zipcode=%@&city=%@&phonenum=%@&secphonenum=%@&email=%@", firstname, lastname, address, zipcode, city, phonenum, secphonenum, email];
+        NSString *noteDataString = [NSString stringWithFormat:@"firstname=%@&lastname=%@&address=%@&zipcode=%@&city=%@&phonenum=%@&secphonenum=%@&email=%@&userid=%@", firstname, lastname, address, zipcode, city, phonenum, secphonenum, email, userid];
         
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];

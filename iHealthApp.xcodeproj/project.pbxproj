@@ -54,6 +54,7 @@
 		F8506BAC1ADEB231003D64B5 /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8506BAA1ADEB231003D64B5 /* OptionsTableViewCell.xib */; };
 		F876AA651B05F2BF003B959D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F876AA631B05F2BF003B959D /* InfoViewController.m */; };
 		F876AA661B05F2BF003B959D /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F876AA641B05F2BF003B959D /* InfoViewController.xib */; };
+		F876AA6C1B075953003B959D /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = F876AA6B1B075953003B959D /* screenshot1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		F876AA621B05F2BF003B959D /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		F876AA631B05F2BF003B959D /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		F876AA641B05F2BF003B959D /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		F876AA6B1B075953003B959D /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		0F4FA937157393B5002A9F51 = {
 			isa = PBXGroup;
 			children = (
+				F876AA6A1B075940003B959D /* Screenshots */,
 				0F9FA47715B3A92F00A5313E /* SFHFKeychainUtils */,
 				0F89C6721574E76000515D9F /* SBJSON */,
 				0FD9F7C91575EDBD0099C468 /* OpenAPI */,
@@ -281,6 +284,14 @@
 			path = OpenAPIDemo;
 			sourceTree = "<group>";
 		};
+		F876AA6A1B075940003B959D /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				F876AA6B1B075953003B959D /* screenshot1.png */,
+			);
+			name = Screenshots;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -331,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F876AA6C1B075953003B959D /* screenshot1.png in Resources */,
 				0F4FA951157393B5002A9F51 /* InfoPlist.strings in Resources */,
 				F83803F31AD50ECE008EEBE6 /* afha.png in Resources */,
 				F8506BA71ADEA081003D64B5 /* OptionsTableViewController.xib in Resources */,

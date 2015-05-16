@@ -159,6 +159,11 @@ static NSString* nickName = nil;
 }
 
 
+- (IBAction)testButton:(id)sender {
+    InfoViewController * vc = [[InfoViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 -(IBAction)getWeightInfo:(id)sender
 {
     UIButton *button=(UIButton *)sender;

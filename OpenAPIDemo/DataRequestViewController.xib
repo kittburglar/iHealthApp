@@ -65,6 +65,15 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7K-dH-HFr">
+                    <rect key="frame" x="137" y="130" width="46" height="30"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="testButton:" destination="-1" eventType="touchUpInside" id="3WB-Mq-gqt"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -73,9 +82,11 @@
                 <constraint firstItem="36" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="8" symbolic="YES" id="47"/>
                 <constraint firstItem="37" firstAttribute="width" secondItem="18" secondAttribute="width" id="0xj-vk-Ec9"/>
                 <constraint firstItem="36" firstAttribute="width" secondItem="18" secondAttribute="width" id="51L-19-yWJ"/>
+                <constraint firstItem="18" firstAttribute="top" secondItem="v7K-dH-HFr" secondAttribute="bottom" constant="8" id="Fwl-XF-732"/>
                 <constraint firstItem="37" firstAttribute="leading" secondItem="18" secondAttribute="leading" id="Jvg-un-AXL"/>
                 <constraint firstAttribute="bottom" secondItem="10" secondAttribute="bottom" constant="8" id="ZuY-O6-ffJ"/>
                 <constraint firstItem="36" firstAttribute="leading" secondItem="18" secondAttribute="leading" id="fGU-Re-qhr"/>
+                <constraint firstAttribute="centerX" secondItem="v7K-dH-HFr" secondAttribute="centerX" id="qFb-Ls-4Ey"/>
                 <constraint firstAttribute="centerX" secondItem="18" secondAttribute="centerX" id="tlN-hJ-J9L"/>
                 <constraint firstItem="18" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="-43" id="xMd-GE-qYr"/>
                 <constraint firstAttribute="centerY" secondItem="18" secondAttribute="centerY" constant="54" id="xbA-Bw-Aik"/>
