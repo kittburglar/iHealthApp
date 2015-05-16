@@ -55,6 +55,7 @@
 		F876AA651B05F2BF003B959D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F876AA631B05F2BF003B959D /* InfoViewController.m */; };
 		F876AA661B05F2BF003B959D /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F876AA641B05F2BF003B959D /* InfoViewController.xib */; };
 		F876AA6C1B075953003B959D /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = F876AA6B1B075953003B959D /* screenshot1.png */; };
+		F876AA6E1B075A1F003B959D /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = F876AA6D1B075A1F003B959D /* screenshot2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,7 @@
 		F876AA631B05F2BF003B959D /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		F876AA641B05F2BF003B959D /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		F876AA6B1B075953003B959D /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
+		F876AA6D1B075A1F003B959D /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				F876AA6B1B075953003B959D /* screenshot1.png */,
+				F876AA6D1B075A1F003B959D /* screenshot2.png */,
 			);
 			name = Screenshots;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				0FDCC93E157EEFD200F799F8 /* DetailDataCell.xib in Resources */,
 				F83803F51AD511DE008EEBE6 /* afhatrans.png in Resources */,
 				0FED310E179FA2F10041A11D /* ViewController.xib in Resources */,
+				F876AA6E1B075A1F003B959D /* screenshot2.png in Resources */,
 				F83803F71AD53533008EEBE6 /* afhanologo.png in Resources */,
 				F83804081AD60BD6008EEBE6 /* twitter.png in Resources */,
 				0F17EB6317A64C7900C9E16B /* myCell.xib in Resources */,
