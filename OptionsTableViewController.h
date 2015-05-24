@@ -11,6 +11,7 @@
 
 @interface OptionsTableViewController : UITableViewController{
     IBOutlet OptionsTableViewCell *optionscell;
+    
 }
 
 @property (retain, nonatomic) OptionsTableViewCell *optionscell;

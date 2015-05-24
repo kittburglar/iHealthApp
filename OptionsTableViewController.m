@@ -62,6 +62,8 @@
         cell.OptionsLabel.text = [NSString stringWithFormat:@"Send Data"];
         [cell.OptionsSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"dataRecording"]];
     }
+    else if (indexPath.row == 1){
+    }
     
     return cell;
 }

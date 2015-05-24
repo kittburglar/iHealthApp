@@ -11,6 +11,7 @@
 #import "OptionsTableViewController.h"
 #import "AllDefine.h"
 #import "AdRequest.h"
+#import "AppDelegate.h"
 #import "JSON.h"
 #import "InfoViewController.h"
 
@@ -25,6 +26,8 @@ static NSString* nickName = nil;
 @synthesize theappID,theappKey;
 @synthesize weightArray;
 @synthesize bpArray;
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize fetchedResultsController;
 
 #define appID @"6d8d73435c334451a87691ec54404514"
 #define appKey @"ece6d4d984dd4c7b835e7c04b367f769"
@@ -57,16 +60,7 @@ static NSString* nickName = nil;
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         // This is the first launch ever
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Blood Glucose Data"
-                                                        message:@"Allow the Assyrian Family Health Alliance to collect data for research?"
-                                                       delegate:self
-                                              cancelButtonTitle:@"No"
-                                              otherButtonTitles:@"OK", nil];
-        InfoViewController * vc = [[InfoViewController alloc] init];
-        [self presentViewController:vc animated:YES completion:nil];
-        
-        [alert show];
-        [alert release];
+       
     }
     
    // didReceiveRequestData
@@ -92,7 +86,56 @@ static NSString* nickName = nil;
     self.bgButton.clipsToBounds = YES;
     self.logoutButton.layer.cornerRadius = 5;
     self.logoutButton.clipsToBounds = YES;
+    
+    
+    //Core data
+    
+    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    managedObjectContext = [appDelegate managedObjectContext];
+    
+    //Add to core data
+    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"User" inManagedObjectContext:managedObjectContext];
+    
+    
+    //Search
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entitydesc];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@", engine.userID];
+    [request setPredicate:predicate];
+    NSError *error;
+    NSArray *matchingData = [managedObjectContext executeFetchRequest:request error:&error];
+
+   
+    
+    if (matchingData.count <=0) {
+        NSLog(@"User not found. Must be new.");
+        
+        //Present first user run stuff.
+        InfoViewController * vc = [[InfoViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Blood Glucose Data"
+                                                        message:@"Allow the Assyrian Family Health Alliance to collect data for research?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"No"
+                                              otherButtonTitles:@"OK", nil];
+        
+        
+        [alert show];
+        [alert release];
+        
+        NSLog(@"engine user id is: %@", engine.userID);
+        NSManagedObject *newUser = [[NSManagedObject alloc] initWithEntity:entitydesc insertIntoManagedObjectContext:managedObjectContext];
+        [newUser setValue:engine.userID forKey:@"userID"];
+        [managedObjectContext save:&error];
+        NSLog(@"Person added.");
     }
+    else{
+        NSLog(@"User already exists!");
+    }
+}
+
+
 -(void)didReceiveRequestData:(NSNotification *)notify{
     NSDictionary *dic=[notify userInfo];
     NSLog(@"didReceiveRequestData-dic==%@",dic);

@@ -11,6 +11,7 @@
 #import "DataRequestViewController.h"
 #import "AllDefine.h"
 #import "InfoViewController.h"
+#import "AppDelegate.h"
 
 
 
@@ -62,31 +63,16 @@
 
 @synthesize engine;
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-//    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-//    [dateFormatter setTimeZone:timeZone];
-//
-//    NSDate *date=[NSDate dateWithTimeIntervalSince1970:10];
-//    NSString *strDate=[dateFormatter stringFromDate:date];
-//    NSString *str=[dateFormatter stringFromDate:strDate];
-  //   NSArray *array = [NSTimeZone knownTimeZoneNames];
-    //[self.navigationController setNavigationBarHidden:YES];
-    //self.navigationItem.title=@"Please Login";
-    //self.loginButton.center = self.view.center;
+
     self.loginButton.layer.cornerRadius = 5;
     self.loginButton.clipsToBounds = YES;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    //self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:85.0f/255.0f green:98.0f/255.0f blue:112.0f/255.0f alpha:1.0f];
     
-    //millennial blue
-    //self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:2.0f/255.0f green:93.0f/255.0f blue:140.0f/255.0f alpha:1.0f];
-    
-    //Lickable Lips
+    //Navigation Bar
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:164.0f/255.0f green:8.0f/255.0f blue:2.0f/255.0f alpha:1.0f];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar
@@ -102,6 +88,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
         engine=[[AdEngines alloc]initWithAppKey:appID appSecret:appKey];
         [engine setDelegate:self];
+    
     if ([engine isLoggedIn]&&![engine isAuthorizeExpired]) {
         [self presentDetailDataViewController:NO];
     }
@@ -157,6 +144,7 @@
 #pragma mark  didLoginDelegate
 -(void)applicationDidLogin
 {
+    /*
     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Login"
                                              message:@"Succeed"
                                             delegate:self
@@ -164,6 +152,7 @@
                                    otherButtonTitles: nil];
     [alert show];
     [alert release];
+     */
      [self presentDetailDataViewController:YES];
 }
 

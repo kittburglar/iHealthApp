@@ -56,6 +56,10 @@
 		F876AA661B05F2BF003B959D /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F876AA641B05F2BF003B959D /* InfoViewController.xib */; };
 		F876AA6C1B075953003B959D /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = F876AA6B1B075953003B959D /* screenshot1.png */; };
 		F876AA6E1B075A1F003B959D /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = F876AA6D1B075A1F003B959D /* screenshot2.png */; };
+		F876AAB71B108CC4003B959D /* OptionTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = F876AAB51B108CC4003B959D /* OptionTableViewCell2.m */; };
+		F876AAB81B108CC4003B959D /* OptionTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = F876AAB61B108CC4003B959D /* OptionTableViewCell2.xib */; };
+		F876AABA1B11A697003B959D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F876AAB91B11A697003B959D /* CoreData.framework */; };
+		F876AABD1B11A7E4003B959D /* iHealthApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F876AABB1B11A7E4003B959D /* iHealthApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +136,11 @@
 		F876AA641B05F2BF003B959D /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		F876AA6B1B075953003B959D /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
 		F876AA6D1B075A1F003B959D /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
+		F876AAB41B108CC4003B959D /* OptionTableViewCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionTableViewCell2.h; sourceTree = "<group>"; };
+		F876AAB51B108CC4003B959D /* OptionTableViewCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionTableViewCell2.m; sourceTree = "<group>"; };
+		F876AAB61B108CC4003B959D /* OptionTableViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionTableViewCell2.xib; sourceTree = "<group>"; };
+		F876AAB91B11A697003B959D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F876AABC1B11A7E4003B959D /* iHealthApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iHealthApp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F876AABA1B11A697003B959D /* CoreData.framework in Frameworks */,
 				0F9819451575B3C4006840CC /* Security.framework in Frameworks */,
 				0F4FA947157393B5002A9F51 /* UIKit.framework in Frameworks */,
 				0F4FA949157393B5002A9F51 /* Foundation.framework in Frameworks */,
@@ -173,6 +183,7 @@
 		0F4FA945157393B5002A9F51 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F876AAB91B11A697003B959D /* CoreData.framework */,
 				0F9819441575B3C4006840CC /* Security.framework */,
 				0F4FA946157393B5002A9F51 /* UIKit.framework */,
 				0F4FA948157393B5002A9F51 /* Foundation.framework */,
@@ -201,6 +212,9 @@
 				F8506BA81ADEB231003D64B5 /* OptionsTableViewCell.h */,
 				F8506BA91ADEB231003D64B5 /* OptionsTableViewCell.m */,
 				F8506BAA1ADEB231003D64B5 /* OptionsTableViewCell.xib */,
+				F876AAB41B108CC4003B959D /* OptionTableViewCell2.h */,
+				F876AAB51B108CC4003B959D /* OptionTableViewCell2.m */,
+				F876AAB61B108CC4003B959D /* OptionTableViewCell2.xib */,
 				F8506BA31ADEA081003D64B5 /* OptionsTableViewController.h */,
 				F8506BA41ADEA081003D64B5 /* OptionsTableViewController.m */,
 				F8506BA51ADEA081003D64B5 /* OptionsTableViewController.xib */,
@@ -208,6 +222,7 @@
 				0FDCC93A157EEFBC00F799F8 /* DetailDataCell.m */,
 				0FDCC93D157EEFD200F799F8 /* DetailDataCell.xib */,
 				0F17EB6217A64C7900C9E16B /* myCell.xib */,
+				F876AABB1B11A7E4003B959D /* iHealthApp.xcdatamodeld */,
 				0F4FA94D157393B5002A9F51 /* Supporting Files */,
 			);
 			path = OpenAPIDemo;
@@ -346,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F876AA6C1B075953003B959D /* screenshot1.png in Resources */,
+				F876AAB81B108CC4003B959D /* OptionTableViewCell2.xib in Resources */,
 				0F4FA951157393B5002A9F51 /* InfoPlist.strings in Resources */,
 				F83803F31AD50ECE008EEBE6 /* afha.png in Resources */,
 				F8506BA71ADEA081003D64B5 /* OptionsTableViewController.xib in Resources */,
@@ -388,10 +404,12 @@
 				F8506BA61ADEA081003D64B5 /* OptionsTableViewController.m in Sources */,
 				0F89C6831574E76000515D9F /* SBJsonBase.m in Sources */,
 				0F89C6841574E76000515D9F /* SBJsonParser.m in Sources */,
+				F876AABD1B11A7E4003B959D /* iHealthApp.xcdatamodeld in Sources */,
 				0F89C6851574E76000515D9F /* SBJsonWriter.m in Sources */,
 				0FDCC93B157EEFBC00F799F8 /* DetailDataCell.m in Sources */,
 				0F9FA47A15B3A92F00A5313E /* SFHFKeychainUtils.m in Sources */,
 				0FED310D179FA2F10041A11D /* ViewController.m in Sources */,
+				F876AAB71B108CC4003B959D /* OptionTableViewCell2.m in Sources */,
 				F8506BAB1ADEB231003D64B5 /* OptionsTableViewCell.m in Sources */,
 				0F17EB5C17A5F7DF00C9E16B /* AdEngines.m in Sources */,
 				0F17EB5D17A5F7DF00C9E16B /* AdAuth.m in Sources */,
@@ -515,6 +533,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F876AABB1B11A7E4003B959D /* iHealthApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F876AABC1B11A7E4003B959D /* iHealthApp.xcdatamodel */,
+			);
+			currentVersion = F876AABC1B11A7E4003B959D /* iHealthApp.xcdatamodel */;
+			path = iHealthApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0F4FA939157393B5002A9F51 /* Project object */;
 }

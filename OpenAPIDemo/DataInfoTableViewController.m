@@ -67,6 +67,8 @@
 
     //self.navigationItem.title=@"Your Data";
     
+    
+    
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:
                                             [NSArray arrayWithObjects:
                                              [UIImage imageNamed:@"up.png"],

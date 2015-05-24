@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AdEngines.h"
+#import <CoreData/CoreData.h>
 
 //extern NSString *nickName;
 
-@interface DataRequestViewController : UIViewController{
+@interface DataRequestViewController : UIViewController<NSFetchedResultsControllerDelegate>{
     AdEngines *engine;
     NSString *theappID;
     NSString *theappKey;
@@ -22,6 +23,8 @@
     NSURLConnection *connection;
     NSMutableData *infoData;
     
+    NSFetchedResultsController *fetchedResultsController;
+    NSManagedObjectContext *managedObjectContext;
 }
 + (NSString*)nickName;
 
@@ -50,6 +53,10 @@
 @property (retain, nonatomic) NSMutableArray *weightArray;
 @property (retain, nonatomic) NSMutableArray *bpArray;
 @property (retain, nonatomic) IBOutlet UIButton *logoutButton;
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
 - (IBAction)testButton:(id)sender;
 
 -(IBAction)getWeightInfo:(id)sender;

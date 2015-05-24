@@ -21,6 +21,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.firstnameText.delegate = self;
+    self.addressText.delegate = self;
+    self.cityText.delegate = self;
+    self.secondaryNumText.delegate = self;
+    self.lastnameText.delegate = self;
+    self.zipCodeText.delegate = self;
+    self.phoneText.delegate = self;
+    self.emailText.delegate = self;
+    
+    self.laterButton.layer.cornerRadius = 5;
+    self.laterButton.clipsToBounds = YES;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    self.doneButton.layer.cornerRadius = 5;
+    self.doneButton.clipsToBounds = YES;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     // Do any additional setup after loading the view from its nib.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
@@ -42,6 +60,7 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,36 +98,75 @@
     [_zipCodeText release];
     [_phoneText release];
     [_emailText release];
+    [_laterButton release];
+    [_doneButton release];
     [super dealloc];
 }
 
+
+
 - (IBAction)doneAction:(id)sender {
     NSLog(@"doneAction pressed");
-    AdEngines *engine=[[AdEngines alloc]initWithAppKey:appID appSecret:appKey];
-    
-    //NSLog(@"%@   UserID:%@\nBGResult:%@ mg/dl\nDinnerSituation:%@\nDrugSituation:%@",strDate,engine.userID,bgResult,dinnerSituation,drugSituation);
-    
-    NSString *firstname = [NSString stringWithFormat:@"%@", _firstnameText.text];
-    NSString *lastname = [NSString stringWithFormat:@"%@", _lastnameText.text];
-    NSString *address = [NSString stringWithFormat:@"%@", _addressText.text];
-    NSString *zipcode = [NSString stringWithFormat:@"%@", _zipCodeText.text];
-    NSString *city = [NSString stringWithFormat:@"%@", _cityText.text];
-    NSString *phonenum = [NSString stringWithFormat:@"%@", _phoneText.text];
-    NSString *secphonenum = [NSString stringWithFormat:@"%@", _secondaryNumText.text];
-    NSString *email = [NSString stringWithFormat:@"%@", _emailText.text];
-    NSString *userid = [NSString stringWithFormat:@"%@", engine.userID];
     
     
-    //Check if user wants to send data
-    //if ([[NSUserDefaults standardUserDefaults] boolForKey:@"dataRecording"]) {
+    //Check for valid values
+    if(![self validateEmail:[self.emailText text]]) {
+        // user entered invalid email address
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Enter a valid email address." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+    }
+    else if (![self validateFirstName:[self.firstnameText text]]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Enter a valid first name." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+    }
+    else if (![self validateFirstName:[self.lastnameText text]]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Enter a valid last name." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+    }
+    else if (![self validateFirstName:[self.addressText text]]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Enter a valid address." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+    }
+    else if (![self validateFirstName:[self.zipCodeText text]]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Enter a valid zip code." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+    }
+    else if (![self validateFirstName:[self.cityText text]]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Enter a valid city." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+    }
+    else {
+        // user entered valid email address
+        AdEngines *engine=[[AdEngines alloc]initWithAppKey:appID appSecret:appKey];
+        //NSLog(@"%@   UserID:%@\nBGResult:%@ mg/dl\nDinnerSituation:%@\nDrugSituation:%@",strDate,engine.userID,bgResult,dinnerSituation,drugSituation);
+        
+        NSString *firstname = [NSString stringWithFormat:@"%@", _firstnameText.text];
+        NSString *lastname = [NSString stringWithFormat:@"%@", _lastnameText.text];
+        NSString *address = [NSString stringWithFormat:@"%@", _addressText.text];
+        NSString *zipcode = [NSString stringWithFormat:@"%@", _zipCodeText.text];
+        NSString *city = [NSString stringWithFormat:@"%@", _cityText.text];
+        NSString *phonenum = [NSString stringWithFormat:@"%@", _phoneText.text];
+        NSString *secphonenum = [NSString stringWithFormat:@"%@", _secondaryNumText.text];
+        NSString *email = [NSString stringWithFormat:@"%@", _emailText.text];
+        NSString *userid = [NSString stringWithFormat:@"%@", engine.userID];
+        
+        
+        //Check if user wants to send data
+        //if ([[NSUserDefaults standardUserDefaults] boolForKey:@"dataRecording"]) {
         //post data up to PHP
         NSString *noteDataString = [NSString stringWithFormat:@"firstname=%@&lastname=%@&address=%@&zipcode=%@&city=%@&phonenum=%@&secphonenum=%@&email=%@&userid=%@", firstname, lastname, address, zipcode, city, phonenum, secphonenum, email, userid];
         
         NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
         
-        NSURL * url = [NSURL URLWithString:@"http://kittburglar.com/save2.php"];
-        //NSURL * url = [NSURL URLWithString:@"http://assyrianhealthalliance.org/ihealth/save.php"];
+        //NSURL * url = [NSURL URLWithString:@"http://kittburglar.com/save2.php"];
+        NSURL * url = [NSURL URLWithString:@"http://assyrianhealthalliance.org/ihealth/save2.php"];
         NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
         [urlRequest setHTTPMethod:@"POST"];
         [urlRequest setHTTPBody:[noteDataString dataUsingEncoding:NSUTF8StringEncoding]];
@@ -130,6 +188,81 @@
         }];
         
         [dataTask resume];
-    //}
+        //}
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
+    }
+    
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"Editing");
+    [self animateTextField: textField up: YES];
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+    [self animateTextField: textField up: NO];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+- (IBAction)laterAction:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)validateEmail:(NSString *)emailStr {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:emailStr];
+}
+
+- (BOOL)validateNonEmpty:(NSString *)firstName
+                lastName:(NSString *)lastName
+                 address:(NSString *)address
+                    city:(NSString *)city
+                 zipCode:(NSString *)zipCode{
+    if ((firstName.length == 0) || (lastName.length == 0) || (address.length == 0) || (city.length == 0) || (zipCode.length == 0)){
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)validateFirstName:(NSString *)firstName {
+    if (firstName.length == 0) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void)checkEmailAndDisplayAlert {
+    if(![self validateEmail:[self.emailText text]]) {
+        // user entered invalid email address
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Enter a valid email address." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+    } else {
+        // user entered valid email address
+    }
+}
+
 @end
